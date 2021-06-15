@@ -1,11 +1,11 @@
 import './navBar.css'
 
-export const NavBar = ({brand}) => {
+export const NavBar = () => {
 
     return (
 
         <nav className="navbar">
-            <span className="navbar-brand">{brand}</span>
+            <span className="navbar-brand">Tienda Domo</span>
             <div className="navbar-content">
               <ul>
                   <li>
