@@ -1,0 +1,26 @@
+.navbar {
+    padding: 15px 30px 15px 30px;
+    display: flex;
+    align-items: center;
+    background-color: #4041b7;
+    justify-content: space-between;
+}
+.navbar-content {
+    display: flex
+}
+
+.navbar-content ul {
+    list-style:none;
+}
+
+.navbar-content button {
+    background: none;
+    color: #cbbde2;
+    border: none;
+    cursor:pointer
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 18px;
+}
