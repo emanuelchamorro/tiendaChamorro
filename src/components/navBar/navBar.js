@@ -1,4 +1,5 @@
 import './navBar.css'
+import {CartWidget} from  '../cartWidget/cartWidget'
 
 export const NavBar = () => {
 
@@ -19,7 +20,7 @@ export const NavBar = () => {
               </ul>
               <ul>
                   <li>
-                      <button>Carrito</button>
+                      <CartWidget />
                   </li>
               </ul>  
             </div>
