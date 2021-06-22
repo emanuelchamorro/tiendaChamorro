@@ -33,7 +33,7 @@ export function ItemCount({ stock, initial }) {
      <>
      <div className="btn-container-increment">
       <button className ="btn-increment" onClick={()=> stock > 0 ? onAdd('-') : ''}>-</button>
-      <input className="value-increment" type="text" value={value}></input>
+      <input className="value-increment" type="text" onChange={(e)=>setValue(e.target.value)} value={value}></input>
       <button className ="btn-increment" onClick={()=> stock > 0 ? onAdd('+') : ''}>+</button> 
      </div>
      <button className="btn-add-to-cart">Agregar al carrito</button>
