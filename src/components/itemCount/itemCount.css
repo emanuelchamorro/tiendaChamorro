@@ -1,0 +1,40 @@
+.btn-container-increment {
+    display: flex;
+    background-color: white;
+    border:solid 1px rgb(202, 202, 202);
+    border-radius: 4px;
+    width: fit-content;
+    padding: 7px;
+}
+
+input.value-increment {
+    text-align: center;
+    width: 90px;
+    background: none;
+    border: none;
+    font-weight: 600;
+}
+
+input:focus-visible {
+    outline: 0;
+}
+
+.btn-increment {
+    background:none;
+    border:none;
+    cursor: pointer;
+    color: #4041b7;
+    font-size: 19px;
+}
+
+.btn-add-to-cart {
+    width: 149px;
+    border: solid 2px #4041b7;
+    background-color: white;
+    color: #4041b7;
+    border-radius: 4px;
+    padding: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
