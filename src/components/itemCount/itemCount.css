@@ -38,3 +38,8 @@ input:focus-visible {
     cursor: pointer;
     margin-top: 10px;
 }
+
+.btn-add-to-cart:disabled {
+    border: solid 2px #585aca8e;
+    color: #585aca8e;
+}
