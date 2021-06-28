@@ -28,7 +28,7 @@ const solicitarItem = new Promise((resolve, reject) => {
     return (
        <div className="list-container">
         <h2>{greeting}</h2>
-        <ItemCount initial='4' stock='4' />
+        <ItemCount initial='1' stock='5' onAdd={"nada"} />
         {array && (
          <Container>
           <ItemList items={array} />
