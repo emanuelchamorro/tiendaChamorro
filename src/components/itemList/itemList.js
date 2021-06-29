@@ -8,14 +8,9 @@ export function ItemList({ items }) {
      
     return (
         <>
-        <Row>{items.map((e)=> {
-          return <Col sm key={e.id}>
-                   <Item id={e.id} 
-                               title={e.title} 
-                               price={e.price} 
-                               pictureUrl={e.pictureUrl}
-                               description={e.description}
-                              />
+        <Row>{items.map((item)=> {
+          return <Col sm key={item.id}>
+                   <Item item={item} />
                 </Col>
             })}
         </Row>
