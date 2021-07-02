@@ -1,3 +1,10 @@
 .img-detail {
     width: inherit;
 }
+.item-detail-title {
+    margin-top: 14px;
+}
+
+.img-item-detail {
+    border-right: solid 1px #f3f3f3;;
+}

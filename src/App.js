@@ -1,16 +1,34 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {NavBar} from './components/navBar/navBar'
 import {ItemListContainer} from './components/itemListContainer/itemListContainer'
 import {ItemDetailContainer} from './components/itemDetailContainer/itemDetailContainer'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-function App() {
+
+export const App = () => {
     return (
       <>
-       <NavBar />
-       <ItemListContainer greeting='Bienvenido a Tienda Domo' />  
-       <ItemDetailContainer />
+      <Router>
+        <main>
+          <NavBar />
+          <Switch>
+            <Route exact path='/'>
+              <ItemListContainer greeting='Bienvenido a Tienda Domo' />  
+            </Route>
+            <Route exact path='/category/:id'>
+              <ItemListContainer greeting='Bienvenido a Tienda Domo'/>  
+            </Route>
+            <Route exact path='/item/:id'>
+             <ItemDetailContainer /> 
+            </Route>
+          </Switch>
+        </main>
+      </Router>
       </>
     );
   }
   
-  export default App;

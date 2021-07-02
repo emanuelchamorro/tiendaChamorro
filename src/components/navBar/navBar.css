@@ -29,3 +29,16 @@ ul {
     font-size: 18px;
 }
 
+ul.categories {
+    display: flex;
+}
+
+ul.categories li {
+    color: white;
+    margin-right: 25px;
+    font-size: 14px;
+}
+
+.is-active {
+font-weight: 700
+}

@@ -9,7 +9,7 @@ export function ItemList({ items }) {
     return (
         <>
         <Row>{items.map((item)=> {
-          return <Col sm key={item.id}>
+          return <Col xs={4} key={item.id}>
                    <Item item={item} />
                 </Col>
             })}
