@@ -8,3 +8,13 @@
 .img-item-detail {
     border-right: solid 1px #f3f3f3;;
 }
+.btn-finish-purchase {
+    border:0;
+    color: white;
+    background-color: #4041b7;
+    border-radius: 4px;
+    padding: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px; 
+}

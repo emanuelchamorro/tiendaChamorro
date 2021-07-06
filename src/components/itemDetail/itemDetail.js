@@ -1,3 +1,5 @@
+import { useState} from "react";
+import {Link} from "react-router-dom";
 import {ItemCount} from '../itemCount/itemCount'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -7,7 +9,15 @@ import './itemDetail.css'
 
 
 export function ItemDetail({ item }) {
-    console.log('item detail', item)
+ 
+  const [count, setCount] = useState(0)
+
+  console.log(count)
+ 
+  const onAdd = (quantityToAdd) => { 
+   setCount(quantityToAdd)
+  }
+   
     return (
       <>
      <Card className='item-detail-card'>
@@ -19,7 +29,8 @@ export function ItemDetail({ item }) {
           <Col >
            <h1 className='item-detail-title'>{item.title}</h1>
            <p>{item.description}</p>
-          <ItemCount initial='1' stock='5' onAdd={"nada"} />
+          { !count && <ItemCount initial='1' stock='5' onAdd={onAdd} />}
+          { !!count && <Link to={`/cart`}><button className='btn-finish-purchase'>Terminar compra</button></Link>}
           </Col> 
         </Row> 
        </Container>
