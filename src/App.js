@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {NavBar} from './components/navBar/navBar'
 import {ItemListContainer} from './components/itemListContainer/itemListContainer'
 import {ItemDetailContainer} from './components/itemDetailContainer/itemDetailContainer'
+import {CartProvider} from './components/cartContext/cartContext'
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,7 +13,8 @@ import {
 export const App = () => {
     return (
       <>
-      <Router>
+      <CartProvider>
+       <Router>
         <main>
           <NavBar />
           <Switch>
@@ -28,6 +30,7 @@ export const App = () => {
           </Switch>
         </main>
       </Router>
+    </CartProvider>
       </>
     );
   }

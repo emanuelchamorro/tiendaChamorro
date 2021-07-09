@@ -1,6 +1,7 @@
-import { useState} from "react";
+import { useContext, useState} from "react";
 import {Link} from "react-router-dom";
 import {ItemCount} from '../itemCount/itemCount'
+import {CartContext} from '../cartContext/cartContext'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,13 +12,14 @@ import './itemDetail.css'
 export function ItemDetail({ item }) {
  
   const [count, setCount] = useState(0)
-
-  console.log(count)
- 
+  
+  const setNewProduct = useContext(CartContext)
+  
   const onAdd = (quantityToAdd) => { 
    setCount(quantityToAdd)
+   setNewProduct(item, quantityToAdd)
   }
-   
+  
     return (
       <>
      <Card className='item-detail-card'>
