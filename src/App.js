@@ -3,6 +3,7 @@ import {NavBar} from './components/navBar/navBar'
 import {ItemListContainer} from './components/itemListContainer/itemListContainer'
 import {ItemDetailContainer} from './components/itemDetailContainer/itemDetailContainer'
 import {CartProvider} from './components/cartContext/cartContext'
+import {Cart} from './components/cart/cart'
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,6 +27,9 @@ export const App = () => {
             </Route>
             <Route exact path='/item/:id'>
              <ItemDetailContainer /> 
+            </Route>
+            <Route exact path='/cart'>
+             <Cart /> 
             </Route>
           </Switch>
         </main>

@@ -13,7 +13,7 @@ export function ItemDetail({ item }) {
  
   const [count, setCount] = useState(0)
   
-  const addItem = useContext(CartContext)
+  const {addItem} = useContext(CartContext)
 
   const onAdd = (quantityToAdd) => { 
    setCount(quantityToAdd)
