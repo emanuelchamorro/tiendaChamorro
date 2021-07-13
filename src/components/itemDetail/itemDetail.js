@@ -13,13 +13,13 @@ export function ItemDetail({ item }) {
  
   const [count, setCount] = useState(0)
   
-  const setNewProduct = useContext(CartContext)
-  
+  const addItem = useContext(CartContext)
+
   const onAdd = (quantityToAdd) => { 
    setCount(quantityToAdd)
-   setNewProduct(item, quantityToAdd)
+   addItem(item, quantityToAdd)
   }
-  
+
     return (
       <>
      <Card className='item-detail-card'>
@@ -31,7 +31,7 @@ export function ItemDetail({ item }) {
           <Col >
            <h1 className='item-detail-title'>{item.title}</h1>
            <p>{item.description}</p>
-          { !count && <ItemCount initial='1' stock='5' onAdd={onAdd} />}
+          { !count && <ItemCount initial={1} stock={5} onAdd={onAdd} />}
           { !!count && <Link to={`/cart`}><button className='btn-finish-purchase'>Terminar compra</button></Link>}
           </Col> 
         </Row> 
