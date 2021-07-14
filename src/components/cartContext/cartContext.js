@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext()
 
@@ -50,7 +50,16 @@ const cartBadgeNumber = () =>{
   setCartQuantity(acumulador)
 }
 
+//totalPrice
+useEffect(()=>{
+
+  const totalPrice = cart.map(({item, quantity}) => item.price * quantity)
+                         .reduce((acc, price) => acc + price, 0)
+                         setTotalQuantity(totalPrice)
+
+}, [cart])
 
 
- return <CartContext.Provider value={{cart, cartQuantity, addItem, removeItem, clear, cartBadgeNumber }}>{children}</CartContext.Provider>
+
+ return <CartContext.Provider value={{cart, cartQuantity, totalQuantity, addItem, removeItem, clear, cartBadgeNumber }}>{children}</CartContext.Provider>
 }

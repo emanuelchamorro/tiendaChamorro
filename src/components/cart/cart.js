@@ -9,7 +9,7 @@ import './cart.css'
 
 export const Cart = ()=> {
 
- const {cart, removeItem, clear} = useContext(CartContext)
+ const {cart, removeItem, clear, totalQuantity} = useContext(CartContext)
     
  console.log('cart en cart.js', cart)
 
@@ -48,10 +48,12 @@ export const Cart = ()=> {
              <Link to={`/`}><button className='btn-finish-purchase'>Volver</button></Link>
           </Row>
            }
-           
-          <Row className='row-btn-filter'>
-          {cart.length !== 0 ? <button className='btn-clear' onClick={()=>clear()} >Limpiar</button> : ''}
-          </Row>
+          {cart.length !== 0  ? <Row className='row-btn-filter'><span>Total: ${totalQuantity}</span></Row> : ''}
+       
+          {cart.length !== 0 ? 
+            <Row className='row-btn-filter'> 
+             <button className='btn-clear' onClick={()=>clear()} >Limpiar</button> 
+            </Row>  : ''}
           </Container>
         </Card>
        </div>
