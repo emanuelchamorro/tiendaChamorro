@@ -1,23 +1,38 @@
-import './itemListContainer.css'
-import {ItemCount} from '../itemCount/itemCount'
+import {dataBase} from '../../firebase/firebase'
 import {ItemList} from '../itemList/itemList'
 import { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import { useParams } from 'react-router-dom'
 import Spinner  from 'react-bootstrap/Spinner'
+import './itemListContainer.css'
 
 export const ItemListContainer = ({greeting}) => { 
 
 const {id}= useParams() 
 const [array, setArray] = useState([])
+const [loading, setLoading] = useState(false)
 
-const arrayItems = [
-  {id: 1, categoryId:'electrodomesticos', title: 'Lavarropas Whirlpool', price: 9000, pictureUrl:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/146/251/products/d350lvrf90s1-f1b7ac89323558c5a815934608233296-640-0.jpg', description:'lorem ipsum' },
-  {id: 2, categoryId:'tecnologia', title: 'Notebook Lenovo S340', price: 29000, pictureUrl:'https://s3-sa-east-1.amazonaws.com/saasargentina/ZaqBNdJOTJfmnEXVMhZ3/imagen', description:'lorem ipsum' },
-  {id: 3, categoryId:'instrumentos', title: 'Guitarra Fender Jazzmaster', price: 19000, pictureUrl:'https://www.tubesoundbcn.com/24861/fender-jazzmaster-american-professional-ii-rw-3-color-sunburst.jpg', description:'lorem ipsum' }
-]
 
 useEffect(() =>{
+  setLoading(true);
+  const db = dataBase;
+  const itemCollection = db.collection('ItemCollection');
+  //const itemCollectionId = db.collection('ItemCollection').where('categoryId','===', 'id');
+  itemCollection.get().then((querySnapshot) => {
+    if (querySnapshot.size === 0) {
+      console.log('No hay resultados');
+    }
+    setArray(querySnapshot.docs.map(doc => doc.data()));
+  }).catch((error) => {
+    console.log('Error buscando items', error);
+  }).finally(() => {
+    setLoading(false)
+  })
+ 
+},[])
+
+
+/*useEffect(() =>{
 const solicitarItem = new Promise((resolve, reject) => {
 
     setTimeout(() => {
@@ -30,7 +45,7 @@ const solicitarItem = new Promise((resolve, reject) => {
        setArray(elemento)
     })
 
-}, [id])
+}, [id])*/
 
   return (
     <div className="list-container">
